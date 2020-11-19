@@ -28,6 +28,7 @@ function resetTime() {
     time = 0;
     startBtn.classList.remove("disabled");
     pauseBtn.classList.remove("disabled");
+    document.querySelector('.timer-add-time').style.display = 'block';
     timeOutput();
 }
 
@@ -83,9 +84,10 @@ function setSeconds() {
 
 function countdown() {
     if (time > 0) {
+        document.querySelector('.timer-add-time').style.display = 'none';
         time = time - 1;
         messageOutput("<span style=\"color: green;\">countdown...</span>");
-        timeOutput();
+        timeOutput();        
     } else {
         clearInterval(intervalId);
         intervalId = null;
