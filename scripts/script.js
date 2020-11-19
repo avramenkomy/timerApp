@@ -9,6 +9,10 @@ const setHoursBtn = document.querySelector('.j-btn-setHours');
 const setMinutesBtn = document.querySelector('.j-btn-setMinutes');
 const setSecondsBtn = document.querySelector('.j-btn-setSeconds');
 
+const minusHourBtn = document.querySelector('.j-minus-hour');
+const minusMinuteBtn = document.querySelector('.j-minus-minute');
+const minusSecondBtn = document.querySelector('.j-minus-second');
+
 const startBtn = document.querySelector('.j-start');
 const pauseBtn = document.querySelector('.j-pause');
 const resetBtn = document.querySelector('.j-reset');
@@ -30,6 +34,8 @@ function resetTime() {
     pauseBtn.classList.remove("disabled");
     document.querySelector('.timer-add-time').style.display = 'block';
     document.querySelector('.hidden').style.display = 'none';
+    document.querySelector('.minus-time').style.display = 'block';
+    document.querySelector('.hidden-2').style.display = 'none';
     timeOutput();
 }
 
@@ -59,7 +65,8 @@ function messageOutput(msg) {
 function setHours() {
     if (!isNaN(+inputTime.value)) {
         time = time + (+inputTime.value * 60 * 60);
-        timeOutput(time)
+        timeOutput(time);
+        messageOutput('');
     } else {
         messageOutput('<span style="color: red; font-size: 0.7em;">TypeError: value must be a number</span>')
     }    
@@ -68,7 +75,8 @@ function setHours() {
 function setMinutes() {
     if (!isNaN(+inputTime.value)) {
         time = time + (+inputTime.value * 60)
-        timeOutput()
+        timeOutput();
+        messageOutput('');
     } else {
         messageOutput('<span style="color: red; font-size: 0.7em;">TypeError: value must be a number</span>')
     }    
@@ -77,16 +85,47 @@ function setMinutes() {
 function setSeconds() {
     if (!isNaN(+inputTime.value)) {
         time = time + (+inputTime.value)
-        timeOutput()
+        timeOutput();
+        messageOutput('');
     } else {
         messageOutput('<span style="color: red; font-size: 0.7em;">TypeError: value must be a number</span>')
     }    
 }
 
-function countdown() {
+function minusHour() {
+    if (Math.floor(time / 60 / 60) > 0) {
+        time = time - (60 * 60);
+        timeOutput();
+        messageOutput('');
+    } else {
+        messageOutput('<span style="color: red;">can not minus for 1 hour</span>');
+    }
+};
+
+function minusMinute() {
+    if (Math.floor(time / 60) > 0) {
+        time = time - 60;
+        timeOutput();
+        messageOutput('');
+    } else {
+        messageOutput('<span style="color: red;">can not minus for 1 minute</span>');
+    }
+};
+
+function minusSecond() {
     if (time > 0) {
         time = time - 1;
+        timeOutput();
+        messageOutput('');
+    } else {
+        messageOutput('<span style="color: red;">can not minus for 1 second</span>');
+    }
+};
+
+function countdown() {
+    if (time > 0) {
         messageOutput("<span style=\"color: green;\">countdown...</span>");
+        time = time - 1;        
         timeOutput();        
     } else {
         clearInterval(intervalId);
@@ -97,7 +136,7 @@ function countdown() {
         messageOutput('<span style=\"color: rgba(10, 117, 0, 0.7);\">countdown is over</span>');
         resetTime();
     } 
-}
+};
 
 function pauseTimer() {
     if (intervalId) {
@@ -112,12 +151,20 @@ setMinutesBtn.addEventListener('click', () => { setMinutes() });
 
 setSecondsBtn.addEventListener('click', () => { setSeconds() });
 
+minusHourBtn.addEventListener('click', ()=> { minusHour() });
+
+minusMinuteBtn.addEventListener('click', ()=> { minusMinute() });
+
+minusSecondBtn.addEventListener('click', ()=> { minusSecond() });
+
 startBtn.addEventListener('click', () => {
     startBtn.classList.add("disabled");
     pauseBtn.classList.remove("disabled");
     startBtn.innerText = "start"
     document.querySelector('.timer-add-time').style.display = 'none';
     document.querySelector('.hidden').style.display = 'block';
+    document.querySelector('.minus-time').style.display = 'none';
+    document.querySelector('.hidden-2').style.display = 'block';
     
     if (!intervalId && time > 0) {
         intervalId = setInterval(countdown, 1000);

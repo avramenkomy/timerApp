@@ -19,15 +19,25 @@
                 <div class="timer-time-colon">:</div>
                 <div class="timer-time-block j-timer-seconds">00</div>
             </div>
+
             <div class="hidden"></div>
             <div class="timer-add-time">
                 <div class="input-group input-group-sm row">
-                    <input type="text" maxlength="2" size="30" class="form-control col-3 j-input-time">
+                    <input type="text" maxlength="2" size="30" class="form-control col-3 j-input-time" required>
                     <div class="input-group-append col-9 btn-panel">
                         <button class="btn btn-outline-primary btn-sm col j-btn-setHours" type="button">+ h</button>
                         <button class="btn btn-outline-primary btn-sm col j-btn-setMinutes" type="button">+ m</button>
                         <button class="btn btn-outline-primary btn-sm col j-btn-setSeconds" type="button">+ s</button>
                     </div>
+                </div>
+            </div>
+
+            <div class="hidden-2"></div>
+            <div class="timer-add-time minus-time">
+                <div class="btn-group btn-group-toggle row" data-toggle="buttons">
+                    <button class="btn btn-outline-primary btn-sm col-3 j-minus-hour" type="button" title="minus 1 hour">- h</button>
+                    <button class="btn btn-outline-primary btn-sm col-3 j-minus-minute" type="button"title="minus 1 minute">- m</button>
+                    <button class="btn btn-outline-primary btn-sm col-3 j-minus-second" type="button" title="minus 1 second">- s</button>
                 </div>
             </div>
 
@@ -54,6 +64,7 @@
             состоянии(countdown...), выводит ошибку ввода, если в input будет строка, ошибку связанную с переполнением переменной 
             time(когда время больше 23:59:59 - Error: time out of range). После окончания отсчета таймер сообщает: countdown is over
             и выдает короткий звуковой сигнал(протестировано на windows и android ОС, на mac ОС и iPhone звуковой сигнал может не выводится).
+            Кнопки "-h", "- m", "- s", отнимают по единице от значений часов, минут, секунд из установленного времени.
         </p>
     </div>
 
