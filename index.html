@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="bootstrap/bootstrap-4.5.0-dist/css/bootstrap.css">
+    <link rel="stylesheet" href="style/style.css">
+    <title>Timer App</title>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="timer">
+            <div class="timer-title">Timer</div>
+      
+            <div class="timer-time">
+                <div class="timer-time-block j-timer-hours">00</div>
+                <div class="timer-time-colon">:</div>
+                <div class="timer-time-block j-timer-minutes">00</div>
+                <div class="timer-time-colon">:</div>
+                <div class="timer-time-block j-timer-seconds">00</div>
+            </div>
+
+            <div class="timer-add-time">
+                <div class="input-group input-group-sm row">
+                    <input type="text" maxlength="2" size="30" class="form-control col-3 j-input-time">
+                    <div class="input-group-append col-9 btn-panel">
+                        <button class="btn btn-outline-primary btn-sm col j-btn-setHours" type="button">set h</button>
+                        <button class="btn btn-outline-primary btn-sm col j-btn-setMinutes" type="button">set m</button>
+                        <button class="btn btn-outline-primary btn-sm col j-btn-setSeconds" type="button">set s</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="timer-control-panel">
+                <div class="btn-group btn-group-toggle row" data-toggle="buttons">
+                    <button class="btn btn-outline-primary btn-sm col-4 j-start" type="button">start</button>
+                    <button class="btn btn-outline-primary btn-sm col-4 j-pause" type="button">pause</button>
+                    <button class="btn btn-outline-primary btn-sm col-4 j-reset" type="button">reset</button>
+                </div>
+            </div>
+
+            <div class="timer-message">timer message</div>
+            
+        </div>
+    </div>
+
+    <!-- Звуковой сигнал окончания таймера-->
+    <audio id="sound1" src="media/Ding.wav"></audio>
+    <!-- <button class="btn j-btn-sound">Ding</button> -->
+
+    <script src="scripts/script.js"></script>
+    <!-- <script src="jQuery/jQuery_3_5_1.js"></script>
+    <script src="bootstrap/bootstrap-4.5.0-dist/js/bootstrap.min.js"></script> -->
+</body>
+</html>
