@@ -77,3 +77,10 @@ body {
     color: rgba(121, 121, 121, 0.7);
 }
 
+.readme {
+    width: 40%;
+    margin-top: 15px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
