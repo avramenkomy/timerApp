@@ -141,4 +141,5 @@ resetBtn.addEventListener('click', () => {
     intervalId = null;  
     resetTime();
     messageOutput('');
+    startBtn.innerText = "start" 
 });
