@@ -24,9 +24,9 @@
                 <div class="input-group input-group-sm row">
                     <input type="text" maxlength="2" size="30" class="form-control col-3 j-input-time">
                     <div class="input-group-append col-9 btn-panel">
-                        <button class="btn btn-outline-primary btn-sm col j-btn-setHours" type="button">set h</button>
-                        <button class="btn btn-outline-primary btn-sm col j-btn-setMinutes" type="button">set m</button>
-                        <button class="btn btn-outline-primary btn-sm col j-btn-setSeconds" type="button">set s</button>
+                        <button class="btn btn-outline-primary btn-sm col j-btn-setHours" type="button">+ h</button>
+                        <button class="btn btn-outline-primary btn-sm col j-btn-setMinutes" type="button">+ m</button>
+                        <button class="btn btn-outline-primary btn-sm col j-btn-setSeconds" type="button">+ s</button>
                     </div>
                 </div>
             </div>
@@ -42,6 +42,19 @@
             <div class="timer-message">timer message</div>
             
         </div>
+    </div>
+
+    <div class="readme">
+        <p>Таймер расчитан на время 23:59:59, необходимо учитывать это при вводе времени для обратного отсчета.</p>
+        <p>На всякий случай: <a href="https://github.com/avramenkomy/timerApp" target="_blank">ссылка на исходный код</a></p>
+        <p>
+            В поле input вводится двузначное число. Время устанавливается кнопками "+ h"(добавить часы), "+ m"(добавить минуты), 
+            "+ s"(добавитьсекунды). После установки времени для запуска отсчета нажать "start". Для паузы нажать "pause", для продолжения
+            отсчета нажать "resume". Для полного сброса используется "reset". Во время работы таймер выдает сообщения о своем 
+            состоянии(countdown...), выводит ошибку ввода, если в input будет строка, ошибку связанную с переполнением переменной 
+            time(когда время больше 23:59:59 - Error: time out of range). После окончания отсчета таймер сообщает, что отсчет 
+            окончен(countdown is over) и выдает короткий звуковой сигнал.
+        </p>
     </div>
 
     <!-- Звуковой сигнал окончания таймера-->
