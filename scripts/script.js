@@ -29,6 +29,7 @@ function resetTime() {
     startBtn.classList.remove("disabled");
     pauseBtn.classList.remove("disabled");
     document.querySelector('.timer-add-time').style.display = 'block';
+    document.querySelector('.hidden').style.display = 'none';
     timeOutput();
 }
 
@@ -85,6 +86,7 @@ function setSeconds() {
 function countdown() {
     if (time > 0) {
         document.querySelector('.timer-add-time').style.display = 'none';
+        document.querySelector('.hidden').style.display = 'block';
         time = time - 1;
         messageOutput("<span style=\"color: green;\">countdown...</span>");
         timeOutput();        

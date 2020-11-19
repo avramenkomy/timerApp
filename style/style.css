@@ -40,6 +40,12 @@ body {
     align-items: center;
 }
 
+.hidden {
+    display: none;
+    width: 200px;
+    height: 31px;
+}
+
 .input-group {
     width: 230px;
     display: flex;
