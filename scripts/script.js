@@ -85,8 +85,6 @@ function setSeconds() {
 
 function countdown() {
     if (time > 0) {
-        document.querySelector('.timer-add-time').style.display = 'none';
-        document.querySelector('.hidden').style.display = 'block';
         time = time - 1;
         messageOutput("<span style=\"color: green;\">countdown...</span>");
         timeOutput();        
@@ -118,6 +116,8 @@ startBtn.addEventListener('click', () => {
     startBtn.classList.add("disabled");
     pauseBtn.classList.remove("disabled");
     startBtn.innerText = "start"
+    document.querySelector('.timer-add-time').style.display = 'none';
+    document.querySelector('.hidden').style.display = 'block';
     
     if (!intervalId && time > 0) {
         intervalId = setInterval(countdown, 1000);
